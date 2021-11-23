@@ -1,0 +1,34 @@
+:root {
+
+  --header-height: 53px;
+
+  /* Colors */
+
+  --main-color: #005e8b;
+  --main-contrast: white;
+  --main-dark: #000;
+  --white-input-bg: rgba(0,0,0,0.1);
+
+  /* Spaces */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Font */
+
+  --font-sm: 11px;
+  --font-md: 13px;
+  --font-lg: 15px;
+  --font-xl: 18px;
+
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  background-color: var(--bgLightGray);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}

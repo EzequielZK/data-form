@@ -1,0 +1,7 @@
+.icon {
+    margin-bottom: var(--spacing-md);
+    width: 50px !important;
+    height: 50px;
+    color: green;
+  }
+  

@@ -1,0 +1,18 @@
+.icon {
+    margin-bottom: var(--spacing-md);
+    width: 50px !important;
+    height: 50px;
+    color: red;
+  }
+  
+  .fields {
+    color: red;
+  }
+  
+  .fieldsContainer {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  

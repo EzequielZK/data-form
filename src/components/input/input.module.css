@@ -1,0 +1,19 @@
+.container {
+  margin: 0 var(--spacing-md);
+}
+
+.input {
+  border: none;
+  background-color: var(--white-input-bg);
+  padding: var(--spacing-sm);
+  border-radius: 4px;
+  margin: var(--spacing-sm) 0;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.errorMessage {
+  color: red;
+}
