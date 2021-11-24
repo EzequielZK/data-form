@@ -1,7 +1,7 @@
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { FormButton } from "../../buttons";
+import { FormButton } from "../../";
 import cssStyles from "./formFeedbackModal.module.css";
 
 class FormFeedbackModal extends React.Component {
@@ -24,7 +24,10 @@ class FormFeedbackModal extends React.Component {
           ))}
         </div>
 
-        <FormButton.Contained full_width="true" onClick={() => this.props.closeModal()}>
+        <FormButton.Contained
+          full_width="true"
+          onClick={() => this.props.closeModal()}
+        >
           Ok
         </FormButton.Contained>
       </>

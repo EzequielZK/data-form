@@ -30,6 +30,8 @@ class FormBase extends Component {
       this.formHandler.fillInitialLabels(this.props.name, this.props.label);
     }
 
+    this.formHandler.setInputRef(this.props.name, this);
+
     this.mounted = true;
   }
 
@@ -40,7 +42,6 @@ class FormBase extends Component {
   }
 
   setValue = (event) => {
-    console.log({ event });
     const { value, type = "text" } = event.target;
 
     const { mask, maxLength } = this.props;

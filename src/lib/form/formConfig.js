@@ -8,9 +8,9 @@ class FormData {
   tradeValues = [];
   customComponentsRefs = {};
 
-  constructor(onSubmit, tradeValues, formRef) {
+  constructor(onSubmit, formRef, clearOnSubmit) {
     this.onSubmit = onSubmit;
-    this.tradeValues = tradeValues;
+    this.clearOnSubmit = clearOnSubmit;
     if (formRef) {
       formRef(this);
     }
@@ -20,7 +20,9 @@ class FormData {
     this.customComponentsRefs = { ...this.customComponentsRefs, [key]: ref };
   };
 
-
+  setInputRef = (key, ref) => {
+    this.inputRefs = { ...this.inputRefs, [key]: ref };
+  };
 
   getValue = (name) => {
     return this.inputRefs[name].state.value;
@@ -29,9 +31,6 @@ class FormData {
   setValue = (name, value) => {
     this.inputRefs[name].setValue({ target: { value } });
   };
-
-
-
 
   fillInitialLabels = (key, label) => {
     this.inputLabels = { ...this.inputLabels, [key]: label };
@@ -69,11 +68,26 @@ class FormData {
     delete this.data[key];
   };
 
+  clearAllValues = () => {
+    let key;
+
+    for (key in this.inputRefs) {
+      const input = this.inputRefs[key];
+      console.log({ input });
+      input.setValue({ target: { value: "" } });
+    }
+  };
+
   submit = () => {
     const { validForm, missingLabels } = this.validateInputs();
     if (this.onSubmit) {
       if (validForm) {
         this.onSubmit(this.data);
+
+        if (this.clearOnSubmit) {
+          console.log("LIMPA");
+          this.clearAllValues();
+        }
       } else {
         openModal.formFeedbackModal({
           fields: missingLabels,

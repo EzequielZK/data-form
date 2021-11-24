@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import ErrorModal from "./errorModal/ErrorModal";
 import FormFeedbackModal from "./formFeedbackModal/FormFeedbackModal";
-import NotImplemented from "./notImplemented/NotImplemented";
 import { getModalRef } from "./openModal";
 import modalStyles from "./modal.module.css";
-import ServerErrorModal from "./serverErrorModal/ServerErrorMomodal";
-import ShowModal from "./showModal/showModal";
+import ServerErrorModal from "./serverErrorModal/ServerErrorModal";
 import { OutsideClick } from "..";
 import SuccessModal from "./successModal/SuccessModal";
-import PatchNotesModal from "./patchNotesModal/PatchNotesModal";
 
 class Modal extends Component {
   state = {
@@ -32,7 +28,6 @@ class Modal extends Component {
   modalTypes = () => {
     const { type } = this.state;
     const types = {
-      error: ErrorModal,
       success: SuccessModal,
       serverError: ServerErrorModal,
       formFeedback: FormFeedbackModal,

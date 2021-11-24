@@ -5,7 +5,11 @@ class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.formHandler = new FormConfig(props.onSubmit, props.formRef);
+    this.formHandler = new FormConfig(
+      props.onSubmit,
+      props.formRef,
+      props.clearOnSubmit
+    );
   }
   static FormContext = React.createContext(null);
 

@@ -1,5 +1,5 @@
 import { isEmail, isCPF } from "./functions";
-
+import { isCellphone } from "./functions/isCellphone";
 
 export default class Validations {
   value = null;
@@ -7,7 +7,8 @@ export default class Validations {
 
   testers = {
     email: () => isEmail(this.value),
-    cpf: () => isCPF(this.value)
+    cpf: () => isCPF(this.value),
+    cel: () => isCellphone(this.value),
   };
 
   constructor(value, test) {
