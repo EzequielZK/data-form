@@ -1,8 +1,13 @@
 import { getUsersList } from "../../../models/get";
-import { saveStorage } from "../../../service/storage";
+import { getStorage, saveStorage } from "../../../service/storage";
 
-export function saveUsersList() {
-  const usersList = getUsersList();
-
-  saveStorage("usersList", usersList);
+export async function saveUsersList() {
+  const storageKey = "usersList";
+  const response = await getUsersList();
+  const savedUsersList = getStorage(storageKey);
+  const usersList = [...response.data];
+  if (savedUsersList) {
+    usersList.push(savedUsersList);
+  }
+  saveStorage(storageKey, usersList);
 }

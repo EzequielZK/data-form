@@ -47,6 +47,13 @@ class FormData {
       }
     }
 
+    key = undefined;
+
+    for (key in this.inputRefs) {
+      if (this.inputRefs[key].state.error) {
+        missingInputs.push(key);
+      }
+    }
     if (missingInputs.length) {
       const { length } = missingInputs;
       let i = 0;
@@ -73,7 +80,6 @@ class FormData {
 
     for (key in this.inputRefs) {
       const input = this.inputRefs[key];
-      console.log({ input });
       input.setValue({ target: { value: "" } });
     }
   };
@@ -85,7 +91,6 @@ class FormData {
         this.onSubmit(this.data);
 
         if (this.clearOnSubmit) {
-          console.log("LIMPA");
           this.clearAllValues();
         }
       } else {

@@ -7,15 +7,30 @@ export function getModalRef(ref) {
   }
 }
 
-function errorModal({ message, consoleError }) {
+function chooseModal({ text, buttons = [] }) {
   savedConfigs = {
-    message,
-    consoleError,
+    text,
+    buttons,
   };
   if (!modalRef) {
     return;
   }
-  modalRef.setModalConfigs(savedConfigs, "error", true);
+  modalRef.setModalConfigs(savedConfigs, "choose", true);
+}
+
+function editForm({ firstname, lastname, cpf, phone, email, index }) {
+  savedConfigs = {
+    firstname,
+    lastname,
+    cpf,
+    phone,
+    email,
+    index,
+  };
+  if (!modalRef) {
+    return;
+  }
+  modalRef.setModalConfigs(savedConfigs, "editForm", true);
 }
 
 function successModal({ message }) {
@@ -54,47 +69,16 @@ function serverErrorModal({ response }, { statusError = [] } = {}) {
   }
 }
 
-function notImplemented() {
-  if (!modalRef) {
-    return;
-  }
-  modalRef.setModalConfigs(savedConfigs, "notImplemented", true);
-}
-
-function show({ title, type, component, ...props }) {
-  savedConfigs = {
-    title,
-    type,
-    component,
-    ...props,
-  };
-  if (!modalRef) {
-    return;
-  }
-  modalRef.setModalConfigs(savedConfigs, "show", true);
-}
-
-function patchNotes({ history, ...props }) {
-  savedConfigs = {
-    history,
-    ...props,
-  };
-  if (!modalRef) {
-    return;
-  }
-  modalRef.setModalConfigs(savedConfigs, "patchNotes", true);
-}
-
 export function closeModal() {
   modalRef.closeModal();
 }
 
-export default {
-  errorModal,
+const modals = {
   successModal,
   formFeedbackModal,
-  notImplemented,
   serverErrorModal,
-  show,
-  patchNotes,
+  chooseModal,
+  editForm,
 };
+
+export default modals;

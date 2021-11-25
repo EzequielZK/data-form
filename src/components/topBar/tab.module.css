@@ -19,3 +19,14 @@
   color: var(--main-contrast);
   /* filter: brightness(80%); */
 }
+
+@media (max-width: 660px) {
+  .container {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+  .container > svg {
+    display: none;
+  }
+}

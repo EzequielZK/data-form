@@ -4,7 +4,7 @@ import cssStyles from "./input.module.css";
 
 export default class Input extends FormBase {
   render() {
-    const { mask, ...props } = this.props;
+    const { mask, defaultValue, ...props } = this.props;
     return (
       <div className={cssStyles.container}>
         {this.props.label ? (

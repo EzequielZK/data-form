@@ -7,7 +7,6 @@ import cssStyles from "./successModal.module.css";
 class SuccessModal extends React.Component {
   render() {
     const { message } = this.props.configs;
-    console.log({ message });
     return (
       <>
         <FontAwesomeIcon className={cssStyles.icon} icon={faCheck} />

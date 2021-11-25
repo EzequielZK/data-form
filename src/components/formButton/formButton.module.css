@@ -42,10 +42,10 @@
 }
 
 .outlinedButton {
-  border: 1px solid var(--lightFontColor);
-  background-color: var(--bgWhite);
+  border: 1px solid var(--main-color);
+  background-color: var(--main-contrast);
   padding: var(--spacing-sm);
-  color: var(--defaultFontColor);
+  color: var(--main-color);
   transition: 0.2s;
 }
 
@@ -58,7 +58,8 @@
 }
 
 .outlinedButton:hover {
-  background-color: var(--hoverOutlinedButton);
+  cursor: pointer;
+  filter: brightness(80%);
 }
 
 /* .icon {

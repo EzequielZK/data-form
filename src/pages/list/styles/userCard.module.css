@@ -4,13 +4,23 @@
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
-  flex: 1 1 200px;
+  min-width: 300px;
   margin: 10px;
   box-shadow: -2px 3px 10px -3px;
 }
 
-.infoContainer {
+.container > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.container > div > :nth-child(1) {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.container:hover {
+  cursor: pointer;
+  filter: brightness(80%);
 }

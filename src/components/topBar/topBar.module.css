@@ -40,4 +40,25 @@
 .children {
   padding: var(--spacing-md);
   width: 100%;
+  height: calc(100% - 150px);
+  overflow-y: auto;
+}
+
+@media (max-width: 660px) {
+  .topBar {
+    display: none;
+  }
+  .sideMenu {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: -4px -3px 11px;
+  }
+  .contentContainer{
+    flex-direction: column;
+  }
+  .children{
+    width: auto;
+
+  }
 }

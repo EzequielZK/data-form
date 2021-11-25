@@ -1,12 +1,21 @@
 import React from "react";
-import { MainForm } from "../../../components";
 import Form from "../../../lib/form/Form";
 import { inputCelMask, inputMaskCPF } from "../../../lib/masks/Masks";
-import { saveDataRequest } from "../request/saveDataRequest";
+import { getStorage, saveStorage } from "../../../service/storage";
+import MainForm from "../../mainForm/MainForm";
+import openModal from "../openModal";
 
-export default function FormView() {
+export default function EditForm({ configs }) {
+  const { firstname, lastname, cpf, phone, email, index } = configs;
   return (
-    <Form onSubmit={saveDataRequest} clearOnSubmit>
+    <Form
+      onSubmit={(data) => {
+        const storageKey = "usersList";
+        const savedUsersList = getStorage(storageKey);
+        savedUsersList.splice(index, 1, data);
+        saveStorage(storageKey, savedUsersList);
+      }}
+    >
       <MainForm
         inputs={[
           {
@@ -14,12 +23,14 @@ export default function FormView() {
             label: "First name",
             placeholder: "Type your first name",
             required: "Please, inform your name",
+            defaultValue: firstname,
           },
           {
             name: "lastname",
             label: "Last name",
             placeholder: "Type your surname",
             required: "Please, inform your surname",
+            defaultValue: lastname,
           },
           {
             name: "cpf",
@@ -28,6 +39,7 @@ export default function FormView() {
             test: "cpf",
             required: "Please, inform your cpf",
             mask: inputMaskCPF,
+            defaultValue: cpf,
           },
           {
             name: "phone",
@@ -36,6 +48,7 @@ export default function FormView() {
             test: "cel",
             required: "Please, inform your cellphone",
             mask: inputCelMask,
+            defaultValue: phone,
           },
           {
             name: "email",
@@ -43,8 +56,12 @@ export default function FormView() {
             placeholder: "Type your email",
             required: "Please, inform your email",
             test: "email",
+            defaultValue: email,
           },
         ]}
+        onClick={() =>
+          openModal.successModal({ message: "Dados editados com sucesso!" })
+        }
       />
     </Form>
   );

@@ -7,6 +7,9 @@ class FormButton extends React.Component {
   onClick = (context, onClick) => {
     if (context && this.props.type === "submit") {
       context.formHandler.submit();
+      if (onClick) {
+        onClick();
+      }
     } else {
       if (onClick) {
         onClick();
@@ -76,4 +79,6 @@ function Text({ children, ...props }) {
   );
 }
 
-export default { Contained, Outlined, Text };
+const buttons = { Contained, Outlined, Text };
+
+export default buttons;

@@ -5,6 +5,8 @@ import modalStyles from "./modal.module.css";
 import ServerErrorModal from "./serverErrorModal/ServerErrorModal";
 import { OutsideClick } from "..";
 import SuccessModal from "./successModal/SuccessModal";
+import ChooseModal from "./chooseModal/ChooseModal";
+import EditForm from "./editForm/EditForm";
 
 class Modal extends Component {
   state = {
@@ -31,6 +33,8 @@ class Modal extends Component {
       success: SuccessModal,
       serverError: ServerErrorModal,
       formFeedback: FormFeedbackModal,
+      choose: ChooseModal,
+      editForm: EditForm,
     };
     return types[type];
   };

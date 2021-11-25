@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.container > span {
+  text-align: left;
+}
+
 .input {
   border: none;
   background-color: var(--white-input-bg);

@@ -8,7 +8,7 @@ export default function TopBar({ location, children }) {
   return (
     <div className={cssStyles.container}>
       <div className={cssStyles.topBar}>
-        <img src={Images.Logo} className={cssStyles.logo} />
+        <img src={Images.Logo} className={cssStyles.logo} alt="logo" />
         {/* {tabs.map((item, index) => (
                 <Tab key={index} text={item.text} href={item.link} />
             ))} */}

@@ -6,7 +6,6 @@ const isCellphone = (cellphone) => {
     return { isValid: false, errorMessage: "Insert a cellphone number" };
   }
   const withoutMask = removeMask(cellphone);
-  console.log({ withoutMask });
   if (withoutMask) {
     if (withoutMask.length === 11) {
       return { isValid: true, errorMessage };

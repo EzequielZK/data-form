@@ -7,7 +7,7 @@ function OutsideClick({ classStyle, onOutsideClick, children }) {
         onOutsideClick();
       }
     });
-  }, []);
+  });
 
   return (
     <div className={classStyle ? classStyle : null} id="container">

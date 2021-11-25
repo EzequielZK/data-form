@@ -6,11 +6,12 @@ export function apiRequest(method) {
     let data = null;
 
     request.open(method, BASE_URL, true);
-    request.setRequestHeader("Content-Type", 'application/json');
-request.withCredentials = false
+    request.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
 
     request.onload = (event) => {
-      console.log({ request });
       if (request.status === 200) {
         data = request.response;
         resolve({ data, status: request.status, ok: request.status === 200 });

@@ -1,26 +1,70 @@
 import React from "react";
+import openModal from "../../../components/modal/openModal";
+import { getStorage, saveStorage } from "../../../service/storage";
 import cssStyle from "../styles/userCard.module.css";
 
-export default function UserCard({ name, surname, cpf, cel, email }) {
+export default function UserCard({
+  firstname,
+  lastname,
+  cpf,
+  phone,
+  email,
+  index,
+}) {
   return (
-    <div className={cssStyle.container}>
-      <div className={cssStyle.infoContainer}>
-        <span>Name:</span>
-        <span>{name}</span>
+    <div
+      onClick={() =>
+        openModal.chooseModal({
+          text: "Choose an action:",
+          buttons: [
+            {
+              label: "Edit info",
+              onClick: () =>
+                openModal.editForm({
+                  firstname,
+                  lastname,
+                  cpf,
+                  phone,
+                  email,
+                  index,
+                }),
+              style: "Contained",
+            },
+            {
+              label: "Delete info",
+              onClick: () => {
+                const storageKey = "usersList";
+                const savedUsersList = getStorage(storageKey);
+                savedUsersList.splice(index, 1);
+                saveStorage(storageKey, savedUsersList);
+                openModal.successModal({
+                  message: "Dados deletados com sucesso!",
+                });
+              },
+              style: "Outlined",
+            },
+          ],
+        })
+      }
+      className={cssStyle.container}
+    >
+      <div>
+        <span>First name:</span>
+        <span>{firstname}</span>
       </div>
-      <div className={cssStyle.infoContainer}>
-        <span>Surname:</span>
-        <span>{surname}</span>
+      <div>
+        <span>Last name:</span>
+        <span>{lastname}</span>
       </div>
-      <div className={cssStyle.infoContainer}>
+      <div>
         <span>CPF:</span>
         <span>{cpf}</span>
       </div>
-      <div className={cssStyle.infoContainer}>
-        <span>Cel:</span>
-        <span>{cel}</span>
+      <div>
+        <span>Phone:</span>
+        <span>{phone}</span>
       </div>
-      <div className={cssStyle.infoContainer}>
+      <div>
         <span>Email:</span>
         <span>{email}</span>
       </div>
