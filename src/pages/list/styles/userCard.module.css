@@ -1,0 +1,16 @@
+.container {
+  border-radius: 10px;
+  background-color: var(--main-contrast);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  flex: 1 1 200px;
+  margin: 10px;
+  box-shadow: -2px 3px 10px -3px;
+}
+
+.infoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

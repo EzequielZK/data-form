@@ -1,6 +1,43 @@
 .container {
-  background-color: var(--main-color);
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.topBar {
+  background-color: var(--main-contrast);
+  box-shadow: 0 10px 20px -20px black;
+  width: 100%;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.sideMenu {
+  min-width: 300px;
+  padding: var(--spacing-md) 0;
+  background-color: var(--main-contrast);
+  border-top: 1px solid var(--divider-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 10px 11px;
+}
+
+.contentContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.children {
+  padding: var(--spacing-md);
+  width: 100%;
 }

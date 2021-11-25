@@ -3,11 +3,12 @@
 
   /* Colors */
 
-  --main-color: #005e8b;
+  --main-color: #7248bd;
   --main-contrast: white;
   --main-dark: #000;
   --white-input-bg: rgba(0, 0, 0, 0.1);
   --modal-overlay-bg: rgba(51, 52, 56, 0.4);
+  --divider-color: rgba(0, 0, 0, 0.1);
 
   /* Spaces */
   --spacing-sm: 8px;

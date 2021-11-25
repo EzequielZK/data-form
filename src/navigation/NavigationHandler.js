@@ -7,17 +7,18 @@ import { publicPaths } from "./paths";
 export default function NavigationHandler() {
   return (
     <BrowserRouter>
-      <TopBar />
-      <Routes>
-        {publicPaths.map((item, index) => (
-          <Route
-            key={index}
-            element={item.element}
-            path={item.path}
-            exact={item.exact}
-          />
-        ))}
-      </Routes>
+      <TopBar location={window.location.pathname}>
+        <Routes>
+          {publicPaths.map((item, index) => (
+            <Route
+              key={index}
+              element={item.element}
+              path={item.path}
+              exact={item.exact}
+            />
+          ))}
+        </Routes>
+      </TopBar>
       <Modal />
     </BrowserRouter>
   );

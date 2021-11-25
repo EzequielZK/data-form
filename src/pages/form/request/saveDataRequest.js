@@ -2,7 +2,7 @@ import openModal from "../../../components/modal/openModal";
 import { getStorage, saveStorage } from "../../../service/storage";
 
 function saveDataRequest(value) {
-  const key = "usersData";
+  const key = "usersList";
 
   const storage = getStorage(key);
   if (storage) {

@@ -1,10 +1,9 @@
 .container {
-  margin: var(--spacing-xl) auto;
   background-color: var(--main-contrast);
   /* height: calc(100% - var(--header-height)); */
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   padding: var(--spacing-md);
+  box-shadow: -4px 6px 10px -8px;
 }

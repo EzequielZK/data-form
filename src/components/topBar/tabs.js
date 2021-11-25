@@ -1,11 +1,11 @@
 const tabs = [
-    {
-        text: 'Form',
-        link: '/form'
-    },
-    {
-        text: 'List',
-        link: '/list'
-    }
-]
-export {tabs}
+  {
+    text: "Home",
+    link: "/",
+  },
+  {
+    text: "Form",
+    link: "/form",
+  },
+];
+export { tabs };
